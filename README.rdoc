@@ -1,3 +1,5 @@
-yumrepo
+= puppet-yumrepo module
+
+{<img src='https://codex.cegeka.be/jenkins/job/puppet-yumrepo/badge/icon' />}[https://codex.cegeka.be/jenkins/job/puppet-yumrepo/]
 
 This is the yumrepo module.

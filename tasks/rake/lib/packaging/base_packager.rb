@@ -4,7 +4,7 @@ require 'fpm/program'
 require 'pp'
 
 $:.unshift(File.join(File.dirname(__FILE__), '..'))
-require 'modulefile'
+require 'modulefile_reader'
 
 class BasePackager
 

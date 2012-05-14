@@ -4,7 +4,7 @@ require 'fpm/program'
 require 'pp'
 
 $:.unshift(File.join(File.dirname(__FILE__), '..'))
-require 'modulefile_reader'
+require 'modulefile'
 
 class BasePackager
 
@@ -44,7 +44,8 @@ class BasePackager
     url = "https://github.com/cegeka/puppet-#{module_name}"
     description = "Puppet module: #{module_name} by Cegeka\nModule #{module_name} description goes here."
 
-    static_arguments = ["-t", @package_type, "-s", "dir", "-x", ".git", "-x", ".gitignore", "-x", "build", "-x", "Rakefile", "-a", @architecture, "-m", "Cegeka <computing@cegeka.be>", "--prefix", "/etc/puppet/modules"]
+    static_arguments = ["-t", @package_type, "-s", "dir", "-a", @architecture, "-m", "Cegeka <computing@cegeka.be>", "--prefix", "/etc/puppet/modules"]
+		exclude_arguments = ["-x", ".git", "-x", ".gitignore", "-x", "tasks", "-x", "Rakefile", "-x", "target", "-x", ".project", "-x", ".puppet-lintrc"]
     var_arguments = ["-n", package_name, "-v", @semver_version, "--iteration", @release, "--url", url, "--description", description, "-C", @basedirectory, module_name]
     arguments = static_arguments + var_arguments
     
